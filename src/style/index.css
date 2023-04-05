@@ -1,0 +1,58 @@
+@import './reset.css';
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Noto+Sans+KR&display=swap');
+
+html, body {
+    --color-border : #938F87;
+    --color-bg : #C7C2B8;
+    --color-text : #1B1B19;
+
+    --border01 : 1px solid var(--color-border);
+    --border02 : 6px double var(--color-border);
+
+    font-family: 'Fjalla One', 'Noto Sans KR', sans-serif;
+    background-color: var(--color-bg);
+    color : var(--color-text);
+
+    overflow: hidden;
+}
+.app {
+    max-width : 1920px;
+    margin : 0 auto;
+    padding: 0 1rem;
+}
+.section-1 {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.section-1 > header {
+    height: 8rem;
+    box-sizing: border-box;
+    border-bottom : var(--border01);
+    display: flex;
+    justify-content: space-between;
+}
+.section-1 > header > h1 {
+    font-size: 5rem;
+    display: flex;
+    align-items : flex-end;
+    padding-bottom: 0.5rem;
+    font-weight: bold;
+}
+.section-1 > header > ul {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+    font-size : 2rem;
+    padding-bottom: 0.5rem;
+}
+.section-1 > main {
+    flex-grow: 1; 
+    padding : 1rem 0;
+    display: flex;
+}
+.section-1 > main > div {
+    box-sizing: border-box;
+    border : var(--border02);
+    flex-grow : 1;
+}
