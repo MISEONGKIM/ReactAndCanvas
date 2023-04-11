@@ -8,7 +8,8 @@ import image2 from "../assets/nudake-2.jpg";
 import image3 from "../assets/nudake-3.jpg";
 
 export const Nudake = () => {
-  const { ref, drawImage, drawCircles, prePosition, imageSrc } = useCanvas();
+  const { ref, drawImage, drawCircles, prePosition, imageSrc, checkPercent } =
+    useCanvas();
 
   const onMouseDown = (e: MouseEvent) => {
     prePosition.current = { x: e.offsetX, y: e.offsetY };
@@ -25,6 +26,7 @@ export const Nudake = () => {
 
   const onMouseMove = (e: MouseEvent) => {
     drawCircles(e);
+    checkPercent();
   };
 
   useEffect(() => {

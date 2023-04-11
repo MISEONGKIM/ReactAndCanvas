@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useCallback } from "react";
 import { useRef } from "react";
+import throttle from "lodash/throttle";
 
 export const useCanvas = () => {
   const ref = useRef<HTMLCanvasElement>(null);
@@ -78,11 +79,39 @@ export const useCanvas = () => {
     prePosition.current = newPos;
   };
 
+  const checkPercent = throttle(() => {
+    const imageData = ctx.current?.getImageData(
+      0,
+      0,
+      size.current.width,
+      size.current.height
+    );
+    if (!imageData) return;
+
+    const gap = 64;
+    const percent = imageData.data
+      .filter((d, i) => i % gap === 3 && i < imageData.data.length - 3)
+      .reduce((acc, cur) => {
+        return (acc += cur === 0 ? 1 : 0);
+      }, 0);
+
+    const total = imageData.data.length / gap;
+    console.log(Math.round((percent / total) * 100));
+  }, 1000);
+
   useEffect(() => {
     const resize = init();
 
     return () => clearEvent(resize);
   }, [init, ref.current]);
 
-  return { ref, ctx, drawImage, drawCircles, prePosition, imageSrc };
+  return {
+    ref,
+    ctx,
+    drawImage,
+    drawCircles,
+    prePosition,
+    imageSrc,
+    checkPercent,
+  };
 };
