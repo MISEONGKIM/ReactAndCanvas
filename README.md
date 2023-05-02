@@ -1,1 +1,1 @@
-"# ReactAndCanvas" 
+ReactAndCanvas 강의
