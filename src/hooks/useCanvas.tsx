@@ -72,7 +72,7 @@ export const useCanvas = () => {
       const x = prePosition.current!.x + Math.cos(angle) * i;
       const y = prePosition.current!.y + Math.sin(angle) * i;
       ctx.current?.beginPath();
-      ctx.current?.arc(x, y, 50, 0, Math.PI * 2);
+      ctx.current?.arc(x, y, size.current.width / 15, 0, Math.PI * 2);
       ctx.current?.fill();
       ctx.current?.closePath();
     });
