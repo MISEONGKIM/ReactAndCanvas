@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <div className="app">
-        {/* <section className="section-1">
+        <section className="section-1">
           <header>
             <h1>Portfolio</h1>
             <ul>
@@ -41,7 +41,7 @@ function App() {
             and more recently with desktop publishing software like Aldus
             PageMaker including versions of Lorem Ipsum.
           </article>
-        </section> */}
+        </section>
         <section className="section-4">
           <RotateCanvas />
         </section>

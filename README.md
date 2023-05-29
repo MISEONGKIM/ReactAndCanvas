@@ -54,3 +54,19 @@
   - Bodies.circle이 있지 않냐? => 속이 꽉찬 골프공이라고 생각하면 된다. 동그란 틀이 필요한데 circle 안은 꽉찬 도형이므로 어떤 작업 추가 못함.
   * 다각형으로 원을 만들어준다.(출처: 패스트캠퍼스 인터렉티브 웹 캔버스 강의)
     ![그라운드 이미지](./src/assets/markdown.png)
+
+### 가시성 추가 IntersectionObserver
+
+- root : observer 대상 가시성 여부를 위한 뷰포트, 기기의 viewport가 기본값,
+- rootMargin : 뷰포트의 가시성 검증을 위한 영역을 확대/축소(css margin 비슷)
+- threshold : 관측 대상의 몇 %가 보였을 때 intersecting 처리를 할지
+
+```
+ const options = {
+  root : document.querySelector('#scrollAera),
+  rootMargin : '0px',
+  threshold : 1.0
+ }
+
+ const observer = new IntersectionObserver(callback, options);
+```
